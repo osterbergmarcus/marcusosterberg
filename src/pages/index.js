@@ -5,6 +5,8 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { rhythm } from '../utils/typography';
+import Video from '../components/video';
+import NavBar from '../components/NavBar';
 
 // TODO clean this up when pulling data from medium works with gatsby-source-medium plugin
 const extContent = [
@@ -42,7 +44,7 @@ const extContent = [
     description:
       'Get rid of all the scooping errors, lets learn about how we refer to the context object in JavaScript with the keyword this.',
     date: 'May 05, 2016',
-    url: 'https//medium.com/@Osterberg/which-context-is-this-47fdb20650d2',
+    url: 'https://medium.com/@Osterberg/which-context-is-this-47fdb20650d2',
   },
   {
     title: 'Don’t Fear JavaScript Prototypes',
@@ -101,31 +103,40 @@ class BlogIndex extends React.Component {
     const posts = data.allMarkdownRemark.edges;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        {extContent.map(content => (
-          <Article
-            key={content.title}
-            title={content.title}
-            url={content.url}
-            date={content.date}
-            description={content.description}
+      <>
+        <NavBar />
+        <Layout location={this.props.location} title={siteTitle}>
+          <SEO title="All posts" />
+          <Bio />
+          <h3>Talks</h3>
+          <Video
+            title="Mobile Applications with JavaScript"
+            src="https://www.youtube.com/embed/eor_4s2iZnU"
           />
-        ))}
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          return (
+          <h3>Posts</h3>
+          {extContent.map(content => (
             <Article
-              key={title}
-              title={title}
-              slug={node.fields.slug}
-              date={node.frontmatter.date}
-              description={node.frontmatter.description}
+              key={content.title}
+              title={content.title}
+              url={content.url}
+              date={content.date}
+              description={content.description}
             />
-          );
-        })}
-      </Layout>
+          ))}
+          {posts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug;
+            return (
+              <Article
+                key={title}
+                title={title}
+                slug={node.fields.slug}
+                date={node.frontmatter.date}
+                description={node.frontmatter.description}
+              />
+            );
+          })}
+        </Layout>
+      </>
     );
   }
 }

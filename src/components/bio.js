@@ -62,60 +62,59 @@ const Bio = () => {
 
   const { author } = data.site.siteMetadata;
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
-      }}
-    >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
+    <>
       <div
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+          display: `flex`,
+          marginBottom: rhythm(1),
         }}
       >
+        <Image
+          fixed={data.avatar.childImageSharp.fixed}
+          alt={author}
+          style={{
+            marginRight: rhythm(1 / 2),
+            marginBottom: 0,
+            minWidth: 50,
+            borderRadius: `100%`,
+          }}
+          imgStyle={{
+            borderRadius: `50%`,
+          }}
+        />
         <p>
           Swedish. I like to create and learn. Here you find me sharing my
-          thoughts and knowledge when I'm not busy in the slopes{' '}
-          <span role="img">❄️🏂🏔☀️</span>
+          thoughts and knowledge when I'm not busy snowboarding{' '}
+          <span role="img">🏔</span>
         </p>
-        <ul
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            listStyleType: 'none',
-            marginBottom: '0px',
-          }}
-        >
-          {socials.map(social => (
-            <li
-              style={{
-                marginRight: '8px',
-              }}
-              key={social.url}
-            >
-              <a href={social.url} target="_new" style={{ boxShadow: 'none' }}>
-                <FontAwesomeIcon icon={social.icon} color="grey" />
-              </a>
-            </li>
-          ))}
-        </ul>
       </div>
-    </div>
+      <ul
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          listStyleType: 'none',
+          marginBottom: '0',
+          justifyContent: 'center',
+        }}
+      >
+        {socials.map(social => (
+          <li
+            style={{
+              marginRight: '8px',
+            }}
+            key={social.url}
+          >
+            <a
+              href={social.url}
+              target="_new"
+              style={{ boxShadow: 'none', hover: { color: 'red' } }}
+            >
+              <FontAwesomeIcon icon={social.icon} color="grey" />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
