@@ -91,7 +91,7 @@ const Bio = () => {
         <p>
           Swedish. I like to create and learn. Here you find me sharing my
           thoughts and knowledge when I'm not busy in the slopes{' '}
-          <span>❄️🏂🏔☀️</span>
+          <span role="img">❄️🏂🏔☀️</span>
         </p>
         <ul
           style={{
