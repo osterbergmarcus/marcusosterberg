@@ -7,6 +7,7 @@ import SEO from '../components/seo';
 import { rhythm } from '../utils/typography';
 import Video from '../components/video';
 import NavBar from '../components/NavBar';
+import { colors } from '../styles';
 
 // TODO clean this up when pulling data from medium works with gatsby-source-medium plugin
 const extContent = [
@@ -74,11 +75,18 @@ const Article = ({ title, slug, date, description, url }) => {
           }}
         >
           {slug ? (
-            <Link style={{ boxShadow: `none` }} to={slug}>
+            <Link
+              style={{ boxShadow: 'none', color: colors.primary }}
+              to={slug}
+            >
               {title}
             </Link>
           ) : (
-            <a href={url} target="_new" style={{ boxShadow: 'none' }}>
+            <a
+              href={url}
+              target="_new"
+              style={{ boxShadow: 'none', color: colors.primary }}
+            >
               {title}
             </a>
           )}
@@ -136,6 +144,15 @@ class BlogIndex extends React.Component {
             );
           })}
         </Layout>
+        <div
+          style={{
+            height: '20px',
+            left: '0px',
+            bottom: '0px',
+            right: '0px',
+            backgroundColor: 'black',
+          }}
+        />
       </>
     );
   }

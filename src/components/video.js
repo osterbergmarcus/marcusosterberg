@@ -6,7 +6,7 @@ const Video = ({ src, title }) => (
       position: 'relative',
       overflow: 'hidden',
       paddingTop: '56.25%',
-      marginTop: '50px',
+      marginTop: '60px',
     }}
   >
     <iframe

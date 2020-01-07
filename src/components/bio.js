@@ -16,6 +16,7 @@ import {
   faMedium,
   faCodepen,
 } from '@fortawesome/free-brands-svg-icons';
+import { colors } from '../styles';
 
 import { rhythm } from '../utils/typography';
 
@@ -66,7 +67,7 @@ const Bio = () => {
       <div
         style={{
           display: `flex`,
-          marginBottom: rhythm(1),
+          flexDirection: 'row',
         }}
       >
         <Image
@@ -77,14 +78,19 @@ const Bio = () => {
             marginBottom: 0,
             minWidth: 50,
             borderRadius: `100%`,
+            width: '80px',
+            height: '80px',
           }}
           imgStyle={{
             borderRadius: `50%`,
+            width: '100px',
+            height: '100px',
           }}
         />
-        <p>
-          Swedish. I like to create and learn. Here you find me sharing my
-          thoughts and knowledge when I'm not busy snowboarding{' '}
+        <p style={{ flex: 1, fontSize: '20px' }}>
+          Swedish. Developer. Learner. I like software engineering. Sometimes I
+          publish articles about the web and mobile platform. <br />
+          On a snowy day you find me in the mountains riding my snowboard{' '}
           <span role="img">🏔</span>
         </p>
       </div>
@@ -104,12 +110,12 @@ const Bio = () => {
             }}
             key={social.url}
           >
-            <a
-              href={social.url}
-              target="_new"
-              style={{ boxShadow: 'none', hover: { color: 'red' } }}
-            >
-              <FontAwesomeIcon icon={social.icon} color="grey" />
+            <a href={social.url} target="_new" style={{ boxShadow: 'none' }}>
+              <FontAwesomeIcon
+                icon={social.icon}
+                color={colors.primary}
+                size="lg"
+              />
             </a>
           </li>
         ))}
