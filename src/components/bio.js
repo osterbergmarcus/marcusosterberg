@@ -78,20 +78,17 @@ const Bio = () => {
             marginBottom: 0,
             minWidth: 50,
             borderRadius: `100%`,
-            width: '80px',
-            height: '80px',
-          }}
-          imgStyle={{
-            borderRadius: `50%`,
             width: '100px',
             height: '100px',
           }}
+          imgStyle={{
+            borderRadius: `50%`,
+          }}
         />
-        <p style={{ flex: 1, fontSize: '20px' }}>
+        <p style={{ flex: 1, fontSize: '18px' }}>
           Swedish. Developer. Learner. I like software engineering. Sometimes I
-          publish articles about the web and mobile platform. <br />
-          On a snowy day you find me in the mountains riding my snowboard{' '}
-          <span role="img">🏔</span>
+          publish articles about the web and mobile platform. On a snowy day you
+          find me in the mountains riding my snowboard <span role="img">🏔</span>
         </p>
       </div>
       <ul
