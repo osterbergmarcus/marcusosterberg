@@ -6,8 +6,40 @@
  */
 
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faGithub,
+  faTwitter,
+  faLinkedin,
+  faMedium,
+  faCodepen,
+} from "@fortawesome/free-brands-svg-icons"
+
+const socials = [
+  {
+    url: `https://twitter.com/osterbergmarcus`,
+    icon: faTwitter,
+  },
+  {
+    url: `https://www.linkedin.com/in/marcus-j-%C3%B6sterberg-3840a5189/`,
+    icon: faLinkedin,
+  },
+  {
+    url: `https://medium.com/@osterberg`,
+    icon: faMedium,
+  },
+  {
+    url: `https://github.com/osterbergmarcus`,
+    icon: faGithub,
+  },
+  {
+    url: `https://codepen.io/osterbergmarcus`,
+    icon: faCodepen,
+  },
+]
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -31,27 +63,68 @@ const Bio = () => {
   const social = data.site.siteMetadata?.social
 
   return (
-    <div className="bio">
-      <StaticImage
-        className="bio-avatar"
-        layout="fixed"
-        formats={["auto", "webp", "avif"]}
-        src="../images/profile-pic.png"
-        width={50}
-        height={50}
-        quality={95}
-        alt="Profile picture"
-      />
-      {author?.name && (
-        <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
-          {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
-          </a>
+    <>
+      <div className="avatar">
+        <StaticImage
+          style={{
+            minWidth: 50,
+            borderRadius: `100%`,
+            width: "100px",
+            height: "100px",
+            marginRight: "16px",
+            marginBottom: "16px",
+          }}
+          imgStyle={{
+            borderRadius: `50%`,
+          }}
+          layout="fixed"
+          formats={["auto", "webp", "avif"]}
+          src="../images/profile-pic.jpeg"
+          quality={95}
+          alt="Profile picture"
+        />
+        <p
+          style={{
+            flex: 1,
+            fontSize: "18px",
+          }}
+        >
+          Self-taught. Engineering Manager. Remote Leadership.
+          <br />
+          On a snowy day you find me in the mountains riding my snowboard{" "}
+          <span role="img">🏔</span>
+          <br />
+          See full bio{" "}
+          <Link to="/about" itemProp="url">
+            here
+          </Link>
         </p>
-      )}
-    </div>
+      </div>
+      <p style={{ textAlign: "center", fontSize: "18px", marginBottom: 0 }}>
+        <strong>You also find me at</strong>
+      </p>
+      <ul
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          listStyleType: "none",
+          justifyContent: "center",
+        }}
+      >
+        {socials.map(social => (
+          <li
+            style={{
+              marginRight: "8px",
+            }}
+            key={social.url}
+          >
+            <a href={social.url} target="_new" style={{ boxShadow: "none" }}>
+              <FontAwesomeIcon icon={social.icon} color="#428c85" size="lg" />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </>
   )
 }
 

@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react"
 
 const Video = ({ src, title }) => (
   <div
     style={{
-      position: 'relative',
-      overflow: 'hidden',
-      paddingTop: '56.25%',
-      marginTop: '60px',
+      position: "relative",
+      overflow: "hidden",
+      paddingTop: "56.25%",
+      marginTop: "60px",
     }}
   >
     <iframe
@@ -18,15 +18,15 @@ const Video = ({ src, title }) => (
       mozallowfullscreen="true"
       allowFullScreen
       style={{
-        position: 'absolute',
-        top: '0px',
-        left: '0px',
-        width: '100%',
-        height: '100%',
-        border: '0px',
+        position: "absolute",
+        top: "0px",
+        left: "0px",
+        width: "100%",
+        height: "100%",
+        border: "0px",
       }}
     />
   </div>
-);
+)
 
-export default Video;
+export default Video

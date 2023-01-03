@@ -52,7 +52,7 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #005b99;
+  --color-primary: #428c85;
   --color-text: #2e353f;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;
@@ -236,6 +236,10 @@ a:focus {
   text-decoration: none;
 }
 
+a:hover {
+  color: #2d655f;
+}
+
 /* Custom classes */
 
 .global-wrapper {
@@ -255,6 +259,7 @@ a:focus {
 .main-heading {
   font-size: var(--fontSize-7);
   margin: 0;
+  text-align: center;
 }
 
 .post-list-item {
@@ -284,22 +289,6 @@ a:focus {
   font-size: var(--fontSize-2);
 }
 
-.bio {
-  display: flex;
-  margin-bottom: var(--spacing-16);
-}
-
-.bio p {
-  margin-bottom: var(--spacing-0);
-}
-
-.bio-avatar {
-  margin-right: var(--spacing-4);
-  margin-bottom: var(--spacing-0);
-  min-width: 50px;
-  border-radius: 100%;
-}
-
 .blog-post header h1 {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
@@ -313,8 +302,30 @@ a:focus {
   margin: var(--spacing-0);
 }
 
-.gatsby-highlight {
-  margin-bottom: var(--spacing-8);
+.nav-bar-content {
+  width: 100%;
+  max-width: var(--maxWidth-wrapper);
+  margin: var(--spacing-0) auto;
+  padding: var(--spacing-10) var(--spacing-5);
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  padding-right: 8px;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media (max-width: 32rem) {
+  .avatar {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* Media queries */
