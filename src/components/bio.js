@@ -2,123 +2,57 @@
  * Bio component that queries for data
  * with Gatsby's useStaticQuery component
  *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
+ * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faGithub,
-  faTwitter,
-  faLinkedin,
-  faMedium,
-  faCodepen,
-} from '@fortawesome/free-brands-svg-icons';
-import { colors } from '../styles';
-
-import { rhythm } from '../utils/typography';
-
-const socials = [
-  {
-    url: `https://twitter.com/osterbergmarcus`,
-    icon: faTwitter,
-  },
-  {
-    url: `https://www.linkedin.com/in/marcus-österberg-3840a5189`,
-    icon: faLinkedin,
-  },
-  {
-    url: `https://medium.com/@osterberg`,
-    icon: faMedium,
-  },
-  {
-    url: `https://github.com/osterbergmarcus`,
-    icon: faGithub,
-  },
-  {
-    url: `https://codepen.io/osterbergmarcus`,
-    icon: faCodepen,
-  },
-];
+import * as React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed_withWebp
+      site {
+        siteMetadata {
+          author {
+            name
+            summary
+          }
+          social {
+            twitter
           }
         }
       }
-      site {
-        siteMetadata {
-          author
-        }
-      }
     }
-  `);
+  `)
 
-  const { author } = data.site.siteMetadata;
+  // Set these values by editing "siteMetadata" in gatsby-config.js
+  const author = data.site.siteMetadata?.author
+  const social = data.site.siteMetadata?.social
+
   return (
-    <>
-      <div
-        style={{
-          display: `flex`,
-          flexDirection: 'row',
-        }}
-      >
-        <Image
-          fixed={data.avatar.childImageSharp.fixed}
-          alt={author}
-          style={{
-            marginRight: rhythm(1 / 2),
-            marginBottom: 0,
-            minWidth: 50,
-            borderRadius: `100%`,
-            width: '100px',
-            height: '100px',
-          }}
-          imgStyle={{
-            borderRadius: `50%`,
-          }}
-        />
-        <p style={{ flex: 1, fontSize: '18px' }}>
-          Swedish. Developer. Learner. I like software engineering. Sometimes I
-          publish articles about the web and mobile platform. On a snowy day you
-          find me in the mountains riding my snowboard <span role="img">🏔</span>
+    <div className="bio">
+      <StaticImage
+        className="bio-avatar"
+        layout="fixed"
+        formats={["auto", "webp", "avif"]}
+        src="../images/profile-pic.png"
+        width={50}
+        height={50}
+        quality={95}
+        alt="Profile picture"
+      />
+      {author?.name && (
+        <p>
+          Written by <strong>{author.name}</strong> {author?.summary || null}
+          {` `}
+          <a href={`https://twitter.com/${social?.twitter || ``}`}>
+            You should follow them on Twitter
+          </a>
         </p>
-      </div>
-      <ul
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          listStyleType: 'none',
-          marginBottom: '0',
-          justifyContent: 'center',
-        }}
-      >
-        {socials.map(social => (
-          <li
-            style={{
-              marginRight: '8px',
-            }}
-            key={social.url}
-          >
-            <a href={social.url} target="_new" style={{ boxShadow: 'none' }}>
-              <FontAwesomeIcon
-                icon={social.icon}
-                color={colors.primary}
-                size="lg"
-              />
-            </a>
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-};
+      )}
+    </div>
+  )
+}
 
-export default Bio;
+export default Bio
