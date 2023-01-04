@@ -1,10 +1,10 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
+import * as React from 'react'
+import { Link, graphql } from 'gatsby'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import NavBar from "../components/navbar"
+import Bio from '../components/bio'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
+import NavBar from '../components/navbar'
 
 const Article = ({ title, url, date, description, slug }) => (
   <article
@@ -60,7 +60,7 @@ const BlogIndex = ({ data, location }) => {
       <Layout location={location} title={siteTitle}>
         <Bio />
         <section>
-          <h3>Notes from books that I've read</h3>
+          <h2>Notes from books that I've read</h2>
           <p>
             Writing things down improves memory and allows me to share what I've
             learned. This is a collection of important or interesting notes from
@@ -71,16 +71,16 @@ const BlogIndex = ({ data, location }) => {
           </p>
         </section>
 
-        <h3 id="posts">All book notes</h3>
+        <h2 id="posts">All book notes</h2>
         <p>coming soon...</p>
       </Layout>
       <div
         style={{
-          height: "2rem",
-          left: "0px",
-          bottom: "0px",
-          right: "0px",
-          backgroundColor: "black",
+          height: '2rem',
+          left: '0px',
+          bottom: '0px',
+          right: '0px',
+          backgroundColor: 'black',
         }}
       />
     </>

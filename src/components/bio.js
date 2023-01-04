@@ -5,18 +5,18 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import * as React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import * as React from 'react'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faGithub,
   faTwitter,
   faLinkedin,
   faMedium,
   faCodepen,
-} from "@fortawesome/free-brands-svg-icons"
+} from '@fortawesome/free-brands-svg-icons'
 
 const socials = [
   {
@@ -69,16 +69,16 @@ const Bio = () => {
           style={{
             minWidth: 50,
             borderRadius: `100%`,
-            width: "100px",
-            height: "100px",
-            marginRight: "16px",
-            marginBottom: "16px",
+            width: '100px',
+            height: '100px',
+            marginRight: '16px',
+            marginBottom: '16px',
           }}
           imgStyle={{
             borderRadius: `50%`,
           }}
           layout="fixed"
-          formats={["auto", "webp", "avif"]}
+          formats={['auto', 'webp', 'avif']}
           src="../images/profile-pic.jpeg"
           quality={95}
           alt="Profile picture"
@@ -86,40 +86,45 @@ const Bio = () => {
         <p
           style={{
             flex: 1,
-            fontSize: "18px",
+            fontSize: '18px',
           }}
         >
           Self-taught. Engineering Manager. Remote Leadership.
           <br />
-          On a snowy day you find me in the mountains riding my snowboard{" "}
+          On a snowy day you find me in the mountains riding my snowboard{' '}
           <span role="img">🏔</span>
           <br />
-          See full bio{" "}
+          Read more{' '}
           <Link to="/about" itemProp="url">
-            here
+            about me
           </Link>
         </p>
       </div>
-      <p style={{ textAlign: "center", fontSize: "18px", marginBottom: 0 }}>
+      <p style={{ textAlign: 'center', fontSize: '18px', marginBottom: 0 }}>
         <strong>You also find me at</strong>
       </p>
       <ul
         style={{
-          display: "flex",
-          flexDirection: "row",
-          listStyleType: "none",
-          justifyContent: "center",
+          display: 'flex',
+          flexDirection: 'row',
+          listStyleType: 'none',
+          justifyContent: 'center',
         }}
       >
         {socials.map(social => (
           <li
             style={{
-              marginRight: "8px",
+              marginRight: '8px',
             }}
             key={social.url}
           >
-            <a href={social.url} target="_new" style={{ boxShadow: "none" }}>
-              <FontAwesomeIcon icon={social.icon} color="#428c85" size="lg" />
+            <a
+              href={social.url}
+              target="_new"
+              style={{ boxShadow: 'none' }}
+              aria-label={`link to ${social.url}`}
+            >
+              <FontAwesomeIcon icon={social.icon} color="#2A5F5B" size="lg" />
             </a>
           </li>
         ))}
