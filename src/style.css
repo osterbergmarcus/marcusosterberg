@@ -304,15 +304,16 @@ a:hover {
 
 .nav-bar-content {
   width: 100%;
-  max-width: var(--maxWidth-wrapper);
+  max-width: var(--maxWidth-sm);
   margin: var(--spacing-0) auto;
   padding: var(--spacing-10) var(--spacing-5);
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav-item {
   color: white;
   text-decoration: none;
-  padding-right: 8px;
 }
 
 .avatar {
@@ -325,6 +326,10 @@ a:hover {
   .avatar {
     flex-direction: column;
     align-items: center;
+  }
+  .nav-bar-content {
+    padding: var(--spacing-10) var(--spacing-2);
+    max-width: var(--maxWidth-full);
   }
 }
 
