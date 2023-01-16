@@ -1,9 +1,9 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
+import * as React from 'react'
+import { Link, graphql } from 'gatsby'
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import NavBar from "../components/navbar"
+import Layout from '../components/layout'
+import Seo from '../components/seo'
+import NavBar from '../components/navbar'
 
 const About = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -19,19 +19,35 @@ const About = ({ data, location }) => {
           I've 12+ years working experience in the IT industry.
           <br />
           <br />
-          Currently modernizing health care in Germany at{" "}
+          Currently modernizing health care in Germany at{' '}
           <Link to="https://www.teleclinic.com" target="_new" itemProp="url">
             TeleClinic
           </Link>
           .
           <br />
           <br />
-          Former Software Engineer at{" "}
+          Former Software Engineer at{' '}
           <Link to="https://www.internations.org" target="_new" itemProp="url">
             InterNations
           </Link>
           , replaced iOS/Android native mobile application with cross-platform
           technology using React-Native.
+          <br />
+          <br />I helped a team of researchers over at{' '}
+          <Link to="https://web.mit.edu/" target="_new" itemProp="url">
+            MIT
+          </Link>{' '}
+          with development of an Android application used for measuring
+          household water consumption habits in developing countries using NFC.
+          Read more{' '}
+          <Link
+            to="https://lemelson.mit.edu/award-winners/natasha-wright"
+            target="_new"
+            itemProp="url"
+          >
+            about the project
+          </Link>
+          .
           <br />
           <br />
           Before my journey as a software engineer I did 5+ years of IT
@@ -40,14 +56,14 @@ const About = ({ data, location }) => {
           <br />
           <br />
           Things I like, growing and scaling engineering teams, building web
-          applications with{" "}
+          applications with{' '}
           <Link to="https://elixir-lang.org/" target="_new" itemProp="url">
             Elixir
           </Link>
           , perfect UX and snowboarding.
         </p>
         <p>
-          You find me on{" "}
+          You find me on{' '}
           <Link
             to="https://twitter.com/osterbergmarcus"
             target="_new"
@@ -55,7 +71,7 @@ const About = ({ data, location }) => {
           >
             twitter
           </Link>
-          ,{" "}
+          ,{' '}
           <Link
             to="https://www.linkedin.com/in/marcus-j-%C3%B6sterberg-3840a5189/"
             target="_new"
@@ -63,11 +79,11 @@ const About = ({ data, location }) => {
           >
             linkedin
           </Link>
-          ,{" "}
+          ,{' '}
           <Link to="https://medium.com/@osterberg" target="_new" itemProp="url">
             medium
           </Link>
-          ,{" "}
+          ,{' '}
           <Link
             to="https://github.com/osterbergmarcus"
             target="_new"
@@ -75,7 +91,7 @@ const About = ({ data, location }) => {
           >
             github
           </Link>
-          ,{" "}
+          ,{' '}
           <Link
             to="https://codepen.io/osterbergmarcus"
             target="_new"
