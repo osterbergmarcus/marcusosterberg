@@ -129,6 +129,12 @@ const BlogIndex = ({ data, location }) => {
         <ol style={{ listStyle: `none`, paddingBottom: 8 }}>
           <li>
             <Video
+              title="Engineering Team Metrics"
+              src="https://www.youtube.com/embed/yp-Ln9uCQEg"
+            />
+          </li>
+          <li>
+            <Video
               title="Mobile Applications with JavaScript"
               src="https://www.youtube.com/embed/eor_4s2iZnU"
             />
